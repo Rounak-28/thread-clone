@@ -2,8 +2,24 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Post from '@/components/Post'
 import Image from 'next/image'
+import { createClient } from '@supabase/supabase-js'
 
-export default function Home() {
+
+export default async function Page() {
+
+  const supabase_url: any = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabase_api: any = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  const supabase = createClient(
+    supabase_url, 
+    supabase_api,
+    { auth: { persistSession: false } }
+    )
+
+  // const { data: posts } = await supabase.from("posts").select();
+  // console.log(posts)
+
+
+
   return (
     <main className="min-h-screen w-screen bg-[#101010] text-white">
         <div className="header sticky top-0 w-14">
