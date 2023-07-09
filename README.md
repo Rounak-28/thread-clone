@@ -5,7 +5,7 @@ this is a clone web app of Instagram's Threads app.
 
 
 ## Roadmap(roughly)
-- [ ] different page for all post when clicked 
+- [X] different page for all post when clicked 
 - [ ] add database
 - [ ] feature to add new post(text only for now)
 - [ ] like count to a post  
