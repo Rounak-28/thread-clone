@@ -5,7 +5,6 @@ import { BsChat, BsHeart } from "react-icons/bs";
 
 export default function Page({ params }: { params: { pid: string } }) {
 // const pid = params.pid
-//   console.log(pid)
   return (
     <div className="min-h-screen w-screen bg-[#101010] text-white">
       <Link href="/" className="sticky top-0 w-screen backdrop-blur-sm">
