@@ -41,7 +41,7 @@ export default async function Page() {
         </div>
         <div className="posts">
         {posts?.map((post) => (
-          <Post id={post.id} />
+          <Post id={post.id} key={post.id} />
         ))}
           {/* <Post id="0" />
           <Post id="1" />
