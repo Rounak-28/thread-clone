@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const Post = ({ id }: any) => {
+const Post = ({ id, text }: { id: string, text: string }) => {
   return (
     <Link href={`post/${id}`}>
       <div className="min-h-[80px] border-b-[1px] border-[#3b3b3b] pb-2">
@@ -12,10 +12,9 @@ const Post = ({ id }: any) => {
           <div className="right w-[90%] pr-2">
             <p className="pb-1 text-sm font-semibold">rounak_28</p>
             <p className="text-sm ">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam,
-              sint? Praesentium velit quam molestiae magnam vero repellat, iure
-              sit debitis, tenetur, nisi mollitia perferendis iusto
-              reprehenderit eos earum assumenda? Voluptatem!
+              {
+              text
+              }
             </p>
           </div>
         </div>

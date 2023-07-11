@@ -1,10 +1,18 @@
+import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi";
 import { BsChat, BsHeart } from "react-icons/bs";
 
-export default function Page({ params }: { params: { pid: string } }) {
+export default async function Page({ params }: { params: { pid: string } }) {
 // const pid = params.pid
+// console.log(params)
+
+// const { data: single_post } = await supabase
+//     .from("posts")
+//     .select()
+//     .eq("id", pid);
+
   return (
     <div className="min-h-screen w-screen bg-[#101010] text-white">
       <Link href="/" className="sticky top-0 w-screen backdrop-blur-sm">
@@ -19,10 +27,7 @@ export default function Page({ params }: { params: { pid: string } }) {
           <span className="text-sm font-semibold">rounak_28</span>
         </div>
         <div className="pt-2 text-sm">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-          excepturi, quae amet eum veritatis commodi nam cum neque veniam
-          nostrum. Amet ipsum sapiente ipsa expedita? Minus enim voluptatibus
-          nam exercitationem?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis autem cupiditate deserunt tenetur assumenda incidunt facere, odio eos corrupti cum architecto ab alias rerum labore commodi odit sunt impedit minus.
         </div>
         <div className="likeanscomms text-xl flex items-center justify-center h-10 space-x-6">
           <BsHeart />
