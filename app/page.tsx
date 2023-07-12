@@ -10,7 +10,7 @@ export default async function Page() {
     .from("posts")
     .select()
     .eq("is_post", true);
-  console.log(posts);
+  // console.log(posts);
 
   // const { error } = await supabase
   //   .from("posts")
@@ -105,7 +105,7 @@ export default async function Page() {
         <Post id="9" />
         <Post id="10" /> */}
       </div>
-      <div className="footer sticky bottom-0">
+      <div className="footer fixed bottom-0">
         <Footer />
       </div>
     </main>

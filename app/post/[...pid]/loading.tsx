@@ -1,9 +1,7 @@
-import React from 'react'
-
 const loading = () => {
   return (
-    <div>loading</div>
-  )
-}
+    <div className="h-screen w-screen bg-[#101010] text-white">loading...</div>
+  );
+};
 
-export default loading
+export default loading;
