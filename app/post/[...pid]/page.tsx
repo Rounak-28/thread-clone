@@ -49,7 +49,7 @@ export default async function Page({ params }: { params: { pid: string } }) {
         {single_post[0].reply_ids.map((id: string) => (
           <div>
             {/* @ts-expect-error Server Component */}
-            <Replies id={id} key={id} />
+            <Replies id={id} key={Math.floor(Math.random() * 1000)} />
           </div>
         ))}
       </div>
