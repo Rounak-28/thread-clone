@@ -4,7 +4,7 @@ import Post from "@/components/Post";
 import { supabase } from "@/lib/supabase";
 import Image from "next/image";
 
-export const revalidate = 0
+export const revalidate = 0;
 
 export default async function Page() {
   // const { error } = await supabase
@@ -20,10 +20,13 @@ export default async function Page() {
   //   { content_text: "feed post 3", user_name: "rounak_28", poster_dp: dp },
   // ]);
 
-  const { data: posts, error } = await supabase.from("posts").select();
+  const { data: posts, error } = await supabase
+    .from("posts")
+    .select()
+    .is("reply_to", null);
 
   // console.log(posts);
-  // if (error) { 
+  // if (error) {
   //   console.log(error);
   // }
 
