@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: { pid: string } }) {
         </div>
       </div>
       <div>
-        {/* @ts-expect-error Server Component */}
+        {/* @ts-ignore */}
         <Replies id={pid} />
       </div>
     </div>
