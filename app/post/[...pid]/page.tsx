@@ -6,7 +6,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi";
 import { BsChat, BsHeart } from "react-icons/bs";
 
-export const revalidate = 0
+export const revalidate = 0;
 
 export default async function Page({ params }: { params: { pid: string } }) {
   const pid = params.pid;
@@ -15,13 +15,17 @@ export default async function Page({ params }: { params: { pid: string } }) {
     .from("posts")
     .select()
     .eq("id", pid)
-    .single()
+    .single();
 
   // if (!post) {
   //   return <div>loading.....</div>;
   // }
 
-  // console.log(post)
+  // const { data: posts, error } = await supabase
+  //   .from("posts")
+  //   .select()
+  //   .is("reply_to", null);
+  // console.log(post);
 
   return (
     <div className="min-h-screen w-screen bg-[#101010] text-white">
@@ -36,21 +40,15 @@ export default async function Page({ params }: { params: { pid: string } }) {
           <img src={post?.poster_dp} className="img h-8 w-8 rounded-full" />
           <span className="text-sm font-semibold">{post?.user_name}</span>
         </div>
-        <div className="pt-2 text-sm">
-          {post?.content_text}
-        </div>
+        <div className="pt-2 text-sm">{post?.content_text}</div>
         <div className="likeanscomms text-xl flex items-center justify-center h-10 space-x-6">
           <BsHeart />
           <BsChat />
         </div>
       </div>
       <div>
-        {/* {post.reply_ids.map((id: string) => (
-          <div key={id}>
-            @ts-expect-error Server Component
-            <Replies id={id} />
-          </div>
-        ))} */}
+        {/* @ts-expect-error Server Component */}
+        <Replies id={pid} />
       </div>
     </div>
   );

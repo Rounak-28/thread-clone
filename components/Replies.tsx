@@ -1,19 +1,21 @@
 import { supabase } from "@/lib/supabase";
 import Post from "./Post";
 
-const Replies = async ({ id }: any) => {
-  const { data: single_somment } = await supabase
+const Replies = async ({ id }: {id: string}) => {
+  const { data: comments, error } = await supabase
     .from("posts")
     .select()
-    .eq("id", id);
+    .eq("reply_to", id);
 
-//   console.log(single_somment);
+  // console.log(comments);
 
-  if (!single_somment) {
-    return <></>;
-  }
-
-  return <Post id={id} text={single_somment[0].text_content} />;
+  return (
+    <>
+      {comments?.map((comment) => (
+        <Post {...comment} key={comment.id} />
+      ))}
+    </>
+  );
 };
 
 export default Replies;

@@ -20,6 +20,39 @@ export default async function Page() {
   //   { content_text: "feed post 3", user_name: "rounak_28", poster_dp: dp },
   // ]);
 
+  // const { error } = await supabase.from("posts").insert([
+  //   {
+  //     content_text: "comment 1 to post 1",
+  //     reply_to: "3d3875b2-6874-4203-885f-b84961206c24",
+  //     user_name: "rounak_28",
+  //     poster_dp: dp,
+  //   },
+  //   {
+  //     content_text: "comment 2 to post 1",
+  //     reply_to: "3d3875b2-6874-4203-885f-b84961206c24",
+  //     user_name: "rounak_28",
+  //     poster_dp: dp,
+  //   },
+  //   {
+  //     content_text: "comment 3 to post 1",
+  //     reply_to: "3d3875b2-6874-4203-885f-b84961206c24",
+  //     user_name: "rounak_28",
+  //     poster_dp: dp,
+  //   },
+  //   {
+  //     content_text: "comment 1 to post 2",
+  //     reply_to: "ce7ce3df-ccfd-4b93-93bc-e171a401f045",
+  //     user_name: "rounak_28",
+  //     poster_dp: dp,
+  //   },
+  //   {
+  //     content_text: "comment 2 to post 2",
+  //     reply_to: "ce7ce3df-ccfd-4b93-93bc-e171a401f045",
+  //     user_name: "rounak_28",
+  //     poster_dp: dp,
+  //   },
+  // ]);
+
   const { data: posts, error } = await supabase
     .from("posts")
     .select()
