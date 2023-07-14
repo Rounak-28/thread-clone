@@ -17,6 +17,8 @@ export default async function Page({ params }: { params: { pid: string } }) {
     .eq("id", pid)
     .single();
 
+    console.log(post)
+
   return (
     <div className="min-h-screen w-screen bg-[#101010] text-white">
       <Link href="/" className="sticky top-0 w-screen backdrop-blur-sm">

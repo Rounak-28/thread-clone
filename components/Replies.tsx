@@ -7,7 +7,7 @@ const Replies = async ({ id }: {id: string}) => {
     .select()
     .eq("reply_to", id);
 
-  // console.log(comments);
+  console.log(comments);
 
   return (
     <>
