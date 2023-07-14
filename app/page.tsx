@@ -4,6 +4,8 @@ import Post from "@/components/Post";
 import { supabase } from "@/lib/supabase";
 import Image from "next/image";
 
+export const revalidate = 0
+
 export default async function Page() {
   // const { error } = await supabase
   // .from('posts')
@@ -13,17 +15,15 @@ export default async function Page() {
   // const dp = "https://avatars.githubusercontent.com/u/95576871";
 
   // const { error } = await supabase.from("posts").insert([
-  //   { content_text: "feed post 1", user_name: "rounak_28" },
-  //   { content_text: "feed post 2", user_name: "rounak_28" },
-  //   { content_text: "feed post 3", user_name: "rounak_28" },
+  //   { content_text: "feed post 1", user_name: "rounak_28", poster_dp: dp },
+  //   { content_text: "feed post 2", user_name: "rounak_28", poster_dp: dp },
+  //   { content_text: "feed post 3", user_name: "rounak_28", poster_dp: dp },
   // ]);
 
-  // const { data: posts, error } = await supabase
-  // .from("posts")
-  // .select()
+  const { data: posts, error } = await supabase.from("posts").select();
 
   // console.log(posts);
-  // if (error) {
+  // if (error) { 
   //   console.log(error);
   // }
 
@@ -33,10 +33,10 @@ export default async function Page() {
         <Header />
       </div>
       <div className="posts">
-        {/* {posts?.map((post) => (
+        {posts?.map((post) => (
           // <Post id={post.id} text={post.text_content} key={post.id} />
           <Post {...post} key={post.id} />
-        ))} */}
+        ))}
         {/* <Post id="0" />
         <Post id="1" />
         <Post id="2" />

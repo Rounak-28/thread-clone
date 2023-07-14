@@ -1,15 +1,14 @@
-import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
+import { createClient } from "@supabase/supabase-js";
 
-const supabase_url: any = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabase_api: any = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-export const supabase = createPagesBrowserClient();
-
-
-
-
-
-
+export const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+  {
+    auth: {
+      persistSession: false,
+    },
+  }
+);
 
 // import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 // import { cookies } from "next/headers";

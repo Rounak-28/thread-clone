@@ -6,20 +6,22 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi";
 import { BsChat, BsHeart } from "react-icons/bs";
 
+export const revalidate = 0
+
 export default async function Page({ params }: { params: { pid: string } }) {
   const pid = params.pid;
-  // console.log(params)
 
-  const { data: single_post, error } = await supabase
+  const { data: post, error } = await supabase
     .from("posts")
     .select()
-    .eq("id", pid);
+    .eq("id", pid)
+    .single()
 
-  if (!single_post) {
-    return <div>loading.....</div>;
-  }
+  // if (!post) {
+  //   return <div>loading.....</div>;
+  // }
 
-  // console.log(single_post)
+  // console.log(post)
 
   return (
     <div className="min-h-screen w-screen bg-[#101010] text-white">
@@ -31,14 +33,11 @@ export default async function Page({ params }: { params: { pid: string } }) {
       </Link>
       <div className="border-b-[1px] border-[#3b3b3b] px-2 py-2">
         <div className="profile flex items-center space-x-3 py-2">
-          <div className="img h-8 w-8 rounded-full bg-white"></div>
-          <span className="text-sm font-semibold">rounak_28</span>
+          <img src={post?.poster_dp} className="img h-8 w-8 rounded-full" />
+          <span className="text-sm font-semibold">{post?.user_name}</span>
         </div>
         <div className="pt-2 text-sm">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-          autem cupiditate deserunt tenetur assumenda incidunt facere, odio eos
-          corrupti cum architecto ab alias rerum labore commodi odit sunt
-          impedit minus.
+          {post?.content_text}
         </div>
         <div className="likeanscomms text-xl flex items-center justify-center h-10 space-x-6">
           <BsHeart />
@@ -46,12 +45,12 @@ export default async function Page({ params }: { params: { pid: string } }) {
         </div>
       </div>
       <div>
-        {single_post[0].reply_ids.map((id: string) => (
+        {/* {post.reply_ids.map((id: string) => (
           <div key={id}>
-            {/* @ts-expect-error Server Component */}
+            @ts-expect-error Server Component
             <Replies id={id} />
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );
