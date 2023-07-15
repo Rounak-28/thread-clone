@@ -1,12 +1,10 @@
-import Post from "@/components/Post";
 import Replies from "@/components/Replies";
 import { supabase } from "@/lib/supabase";
-import Link from "next/link";
 import { AiOutlineHeart } from "react-icons/ai";
-import { BiArrowBack } from "react-icons/bi";
 import { BsChat, BsHeart } from "react-icons/bs";
-import { Suspense } from 'react';
+import { Suspense } from "react";
 import CommentLoading from "@/components/CommentLoading";
+import PostNavbar from "@/components/PostNavbar";
 
 export const revalidate = 0;
 
@@ -19,16 +17,11 @@ export default async function Page({ params }: { params: { pid: string } }) {
     .eq("id", pid)
     .single();
 
-    // console.log(post)
+  // console.log(post)
 
   return (
     <div className="min-h-screen w-screen bg-[#101010] text-white">
-      <Link href="/" className="sticky top-0 w-screen backdrop-blur-sm">
-        <div className="back flex h-11 items-center space-x-3 border-b-[1px] border-[#3b3b3b] px-3">
-          <BiArrowBack className="text-3xl" />
-          <p className="text-xl font-bold">Thread</p>
-        </div>
-      </Link>
+      <PostNavbar />
       <div className="border-b-[1px] border-[#3b3b3b] px-2 py-2">
         <div className="profile flex items-center space-x-3 py-2">
           <img src={post?.poster_dp} className="img h-8 w-8 rounded-full" />
@@ -41,7 +34,7 @@ export default async function Page({ params }: { params: { pid: string } }) {
         </div>
       </div>
       <Suspense fallback={<CommentLoading />}>
-      {/* @ts-ignore */}
+        {/* @ts-ignore */}
         <Replies id={pid} />
       </Suspense>
     </div>
