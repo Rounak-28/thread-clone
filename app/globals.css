@@ -22,6 +22,11 @@
   scrollbar-width: none; /* Firefox */
 }
 
+:root {
+  background-color: #1d1c1c;
+  color: white;
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

@@ -64,7 +64,7 @@ export default async function Page() {
   // }
 
   return (
-    <main className="min-h-screen w-screen bg-[#101010] text-white">
+    <main className="min-h-screen w-screen">
       <div className="header sticky top-0 w-14">
         <Header />
       </div>

@@ -4,7 +4,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { BsChat, BsHeart } from "react-icons/bs";
 import { Suspense } from "react";
 import CommentLoading from "@/components/CommentLoading";
-import PostNavbar from "@/components/PostNavbar";
+import Navbar from "@/components/Navbar";
 
 export const revalidate = 0;
 
@@ -20,8 +20,8 @@ export default async function Page({ params }: { params: { pid: string } }) {
   // console.log(post)
 
   return (
-    <div className="min-h-screen w-screen bg-[#101010] text-white">
-      <PostNavbar />
+    <div className="min-h-screen w-screen">
+      <Navbar text="Thread"/>
       <div className="border-b-[1px] border-[#3b3b3b] px-2 py-2">
         <div className="profile flex items-center space-x-3 py-2">
           <img src={post?.poster_dp} className="img h-8 w-8 rounded-full" />
