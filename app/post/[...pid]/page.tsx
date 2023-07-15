@@ -5,6 +5,8 @@ import Link from "next/link";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi";
 import { BsChat, BsHeart } from "react-icons/bs";
+import { Suspense } from 'react';
+import CommentLoading from "@/components/CommentLoading";
 
 export const revalidate = 0;
 
@@ -38,10 +40,10 @@ export default async function Page({ params }: { params: { pid: string } }) {
           <BsChat />
         </div>
       </div>
-      <div>
-        {/* @ts-ignore */}
+      <Suspense fallback={<CommentLoading />}>
+      {/* @ts-ignore */}
         <Replies id={pid} />
-      </div>
+      </Suspense>
     </div>
   );
 }
