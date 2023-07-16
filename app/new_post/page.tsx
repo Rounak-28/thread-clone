@@ -1,7 +1,31 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
-import React from "react";
+import { supabase } from "@/lib/supabase";
+import { useState } from "react";
 
 const page = () => {
+  const [text, setText] = useState("");
+
+  const handleCommentChange = (e: any) => {
+    setText(e.target.value);
+  };
+
+  const post = async () => {
+    const { error } = await supabase.from("posts").insert({
+      content_text: text,
+      user_name: "rounak_28",
+      poster_dp: "https://avatars.githubusercontent.com/u/95576871",
+    });
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("post success!");
+    }
+  };
+
+  // console.log(comment)
+
   return (
     <>
       <Navbar text="New Thread" />
@@ -14,12 +38,17 @@ const page = () => {
           <textarea
             name=""
             id=""
+            value={text}
+            onChange={handleCommentChange}
             placeholder="write a post..."
             className="w-full h-16 bg-inherit pt-1 mt-1 outline-blue-400"
           ></textarea>
         </div>
       </div>
-      <button className="f w-24 h-11 fixed top-0 right-0 flex justify-center items-center text-blue-400 text-xl font-semibold">
+      <button
+        className="f w-24 h-11 fixed top-0 right-0 flex justify-center items-center text-blue-400 text-xl font-semibold"
+        onClick={post}
+      >
         Post
       </button>
     </>
