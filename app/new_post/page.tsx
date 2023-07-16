@@ -15,11 +15,13 @@ const page = () => {
             name=""
             id=""
             placeholder="write a post..."
-            className="w-full h-16 bg-inherit pt-1 mt-1"
+            className="w-full h-16 bg-inherit pt-1 mt-1 outline-blue-400"
           ></textarea>
         </div>
       </div>
-      <div className="f bg-red-400 h-16 w-screen absolute left-0 bottom-0"></div>
+      <button className="f w-24 h-11 fixed top-0 right-0 flex justify-center items-center text-blue-400 text-xl font-semibold">
+        Post
+      </button>
     </>
   );
 };
