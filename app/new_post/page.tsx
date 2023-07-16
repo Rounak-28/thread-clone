@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import { supabase } from "@/lib/supabase";
 import { useState } from "react";
 
-const page = () => {
+const Page = () => {
   const [text, setText] = useState("");
 
   const handleCommentChange = (e: any) => {
@@ -55,4 +55,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
