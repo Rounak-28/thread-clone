@@ -3,11 +3,10 @@
 import Navbar from "@/components/Navbar";
 import { supabase } from "@/lib/supabase";
 import { useState } from "react";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 
 const Page = () => {
-
-  const router = useRouter()
+  const router = useRouter();
 
   const [text, setText] = useState("");
 
@@ -25,12 +24,10 @@ const Page = () => {
       console.log(error);
     } else {
       console.log("post success!");
-      router.push("/")
+      router.push("/");
       // router.refresh()
     }
   };
-
-  // console.log(comment)
 
   return (
     <>

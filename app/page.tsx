@@ -2,7 +2,6 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Post from "@/components/Post";
 import { supabase } from "@/lib/supabase";
-import Image from "next/image";
 
 export const revalidate = 0;
 
@@ -27,7 +26,7 @@ export default async function Page() {
     .from("posts")
     .select()
     .is("reply_to", null)
-    .order('created_at', { ascending: false })
+    .order("created_at", { ascending: false });
 
   // console.log(posts);
   // if (error) {
@@ -39,22 +38,10 @@ export default async function Page() {
       <div className="header sticky top-0 w-14">
         <Header />
       </div>
-      <div className="posts">
+      <div className="posts mb-8">
         {posts?.map((post) => (
-          // <Post id={post.id} text={post.text_content} key={post.id} />
           <Post {...post} key={post.id} />
         ))}
-        {/* <Post id="0" />
-        <Post id="1" />
-        <Post id="2" />
-        <Post id="3" />
-        <Post id="4" />
-        <Post id="5" />
-        <Post id="6" />
-        <Post id="7" />
-        <Post id="8" />
-        <Post id="9" />
-        <Post id="10" /> */}
       </div>
       <div className="footer fixed bottom-0">
         <Footer />
