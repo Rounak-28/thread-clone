@@ -56,7 +56,8 @@ export default async function Page() {
   const { data: posts, error } = await supabase
     .from("posts")
     .select()
-    .is("reply_to", null);
+    .is("reply_to", null)
+    .order('created_at', { ascending: false })
 
   // console.log(posts);
   // if (error) {
