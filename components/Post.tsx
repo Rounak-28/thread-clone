@@ -1,7 +1,12 @@
 import Link from "next/link";
+import { formatDistance, formatDistanceToNow, subDays } from "date-fns";
 
 const Post = (props: any) => {
   // console.log(props);
+
+  const relativeTime = formatDistanceToNow(new Date(props?.created_at), {
+    addSuffix: true,
+  }).replace("about", "");
 
   return (
     <Link href={`/post/${props.id}`}>
@@ -11,7 +16,10 @@ const Post = (props: any) => {
             <img src={props?.poster_dp} className="h-8 w-8 rounded-full" />
           </div>
           <div className="right w-[90%] pr-2">
-            <p className="pb-1 text-sm font-semibold">{props?.user_name}</p>
+            <div className="flex pb-1 justify-between">
+              <p className="text-sm font-semibold">{props?.user_name}</p>
+              <p className="text-sm">{relativeTime}</p>
+            </div>
             <p className="text-sm ">{props?.content_text}</p>
           </div>
         </div>
