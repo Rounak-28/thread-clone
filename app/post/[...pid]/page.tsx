@@ -26,14 +26,18 @@ export default async function Page({ params }: { params: { pid: string } }) {
 
   return (
     <div className="min-h-screen w-screen">
-      <Navbar text="Thread"/>
+      <Navbar text="Thread" />
       <div className="border-b-[1px] border-[#3b3b3b] px-2 py-2">
         <div className="profile flex items-center space-x-3 py-2">
-          <img src={post?.poster_dp} className="img h-8 w-8 rounded-full" />
+          <img
+            src={post?.poster_dp}
+            className="img h-8 w-8 rounded-full"
+            alt=""
+          />
           <div className="w-screen flex justify-between">
-              <p className="text-sm font-semibold">{post?.user_name}</p>
-              <p className="text-sm">{relativeTime}</p>
-            </div>
+            <p className="text-sm font-semibold">{post?.user_name}</p>
+            <p className="text-sm">{relativeTime}</p>
+          </div>
         </div>
         <div className="pt-2 text-sm">{post?.content_text}</div>
         <div className="likeanscomms text-xl flex items-center justify-center h-10 space-x-6">

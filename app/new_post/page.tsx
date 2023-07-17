@@ -10,11 +10,14 @@ const Page = () => {
 
   const [text, setText] = useState("");
 
+  const [isPosting, setIsPosting] = useState(false);
+
   const handleCommentChange = (e: any) => {
     setText(e.target.value);
   };
 
   const post = async () => {
+    setIsPosting(true);
     const { error } = await supabase.from("posts").insert({
       content_text: text,
       user_name: "rounak_28",
@@ -25,7 +28,7 @@ const Page = () => {
     } else {
       console.log("post success!");
       router.push("/");
-      // router.refresh()
+      router.refresh();
     }
   };
 
@@ -49,10 +52,13 @@ const Page = () => {
         </div>
       </div>
       <button
-        className="f w-24 h-11 fixed top-0 right-0 flex justify-center items-center text-blue-400 text-xl font-semibold"
+        className={`f w-24 h-11 fixed top-0 right-0 flex justify-center items-center  text-xl font-semibold ${
+          isPosting ? "text-blue-300" : "text-blue-400"
+        }`}
         onClick={post}
+        disabled={isPosting}
       >
-        Post
+        {isPosting ? "Posting..." : "Post"}
       </button>
     </>
   );
