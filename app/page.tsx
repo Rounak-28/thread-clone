@@ -12,17 +12,6 @@ export default async function Page() {
   // .delete()
   // .eq("user_name", "rounak_28");
 
-  // const dp = "https://avatars.githubusercontent.com/u/95576871";
-
-  // const { error } = await supabase.from("posts").insert([
-  //   {
-  //     content_text: "comment 1 to post 1",
-  //     reply_to: "3d3875b2-6874-4203-885f-b84961206c24",
-  //     user_name: "rounak_28",
-  //     poster_dp: dp,
-  //   }
-  // ]);
-
   const { data: posts, error } = await supabase
     .from("posts")
     .select()
