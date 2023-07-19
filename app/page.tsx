@@ -25,7 +25,6 @@ export default async function Page() {
 
   return (
     <main className="min-h-screen w-screen">
-      <Login_btn />
       <div className="header sticky top-0 w-14">
         <Header />
       </div>
