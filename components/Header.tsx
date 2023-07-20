@@ -2,20 +2,20 @@
 
 import React, { useEffect, useState } from "react";
 import Login_btn from "./Login_btn";
+import Profile from "./Profile";
+import { useSession } from "next-auth/react";
 
 const Header = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const { data: session } = useSession();
 
   useEffect(() => {
     const handleScroll = () => {
-      // const newScrollHeight = Math.ceil(window.pageYOffset / 5) *5;
-      // if(newScrollHeight != window.pageYOffset){
       if (window.pageYOffset < 10) {
         setIsHeaderVisible(true);
       } else {
         setIsHeaderVisible(false);
       }
-      // }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -28,9 +28,8 @@ const Header = () => {
         className={`bg-white w-9 h-6 mx-auto rounded-full transition-transform
         ${isHeaderVisible ? "header" : "header--hidden"}`}
       ></div>
-      <div className="bg-blue-600 w-24 h-10 absolute right-2 rounded-md">
-        <Login_btn />
-      </div>
+      {session && <Profile session={session} />}
+      <Login_btn />
     </div>
   );
 };
