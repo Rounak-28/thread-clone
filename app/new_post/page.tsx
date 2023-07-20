@@ -5,11 +5,13 @@ import { supabase } from "@/lib/supabase";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { useSession } from "next-auth/react";
+
 const Page = () => {
   const router = useRouter();
+  const { data: session } = useSession();
 
   const [text, setText] = useState("");
-
   const [isPosting, setIsPosting] = useState(false);
 
   const handleCommentChange = (e: any) => {
@@ -20,8 +22,8 @@ const Page = () => {
     setIsPosting(true);
     const { error } = await supabase.from("posts").insert({
       content_text: text,
-      user_name: "rounak_28",
-      poster_dp: "https://avatars.githubusercontent.com/u/95576871",
+      user_name: session?.user?.name,
+      poster_dp: session?.user?.image,
     });
     if (error) {
       console.log(error);
@@ -37,10 +39,12 @@ const Page = () => {
       <Navbar text="New Thread" />
       <div className="h-28 flex pt-3 px-1">
         <div className="left w-[12%] flex justify-center pt-4">
-          <div className="dp w-9 h-9 bg-white rounded-full"></div>
+          <div className="dp w-10 h-10 bg-white rounded-full overflow-hidden">
+            <img src={session?.user?.image!} alt="" />
+          </div>
         </div>
-        <div className="right w-[88%] px-1 pt-2">
-          <p className="text-sm font-semibold">rounak_28</p>
+        <div className="right w-[88%] px-2 pt-3">
+          <p className="text-sm font-semibold">{session?.user?.name}</p>
           <textarea
             name=""
             id=""
