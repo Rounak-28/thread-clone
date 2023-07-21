@@ -1,6 +1,5 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Login_btn from "@/components/Login_btn";
 import Post from "@/components/Post";
 import { supabase } from "@/lib/supabase";
 

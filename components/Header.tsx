@@ -4,9 +4,11 @@ import React, { useEffect, useState } from "react";
 import Login_btn from "./Login_btn";
 import Profile from "./Profile";
 import { useSession } from "next-auth/react";
+import ProfileModal from "./ProfileModal";
 
 const Header = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [isProfileModelOpen, setIsProfileModelOpen] = useState(true);
   const { data: session } = useSession();
 
   useEffect(() => {
@@ -28,8 +30,13 @@ const Header = () => {
         className={`bg-white w-9 h-6 mx-auto rounded-full transition-transform
         ${isHeaderVisible ? "header" : "header--hidden"}`}
       ></div>
-      {session && <Profile session={session} />}
+      <div onClick={() => setIsProfileModelOpen(true)}>
+        {session && <Profile session={session} />}
+      </div>
       <Login_btn />
+      {isProfileModelOpen && (
+        <ProfileModal setIsProfileModelOpen={setIsProfileModelOpen} />
+      )}
     </div>
   );
 };
