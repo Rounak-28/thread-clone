@@ -8,7 +8,7 @@ import ProfileModal from "./ProfileModal";
 
 const Header = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
-  const [isProfileModelOpen, setIsProfileModelOpen] = useState(true);
+  const [isProfileModelOpen, setIsProfileModelOpen] = useState(false);
   const { data: session } = useSession();
 
   useEffect(() => {
