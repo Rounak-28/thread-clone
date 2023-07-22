@@ -30,10 +30,14 @@ const Header = () => {
         className={`bg-white w-9 h-6 mx-auto rounded-full transition-transform
         ${isHeaderVisible ? "header" : "header--hidden"}`}
       ></div>
-      <div onClick={() => setIsProfileModelOpen(true)}>
-        {session && <Profile session={session} />}
-      </div>
-      <Login_btn />
+      {session ? (
+        <Profile
+          session={session}
+          setIsProfileModelOpen={setIsProfileModelOpen}
+        />
+      ) : (
+        <Login_btn />
+      )}
       {isProfileModelOpen && (
         <ProfileModal setIsProfileModelOpen={setIsProfileModelOpen} />
       )}
