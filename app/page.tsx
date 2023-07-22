@@ -24,7 +24,7 @@ export default async function Page() {
 
   return (
     <main className="min-h-screen w-screen">
-      <div className="header sticky top-0 bg-[#1d1c1c]">
+      <div className="header sticky top-0 bg-dark">
         <Header />
       </div>
       <div className="posts mb-8">

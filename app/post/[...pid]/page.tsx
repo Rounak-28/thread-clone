@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import CommentLoading from "@/components/CommentLoading";
 import Navbar from "@/components/Navbar";
 import { formatDistanceToNow } from "date-fns";
+import ReplyBox from "@/components/ReplyBox";
 
 export const revalidate = 0;
 
@@ -49,6 +50,7 @@ export default async function Page({ params }: { params: { pid: string } }) {
         {/* @ts-ignore */}
         <Replies id={pid} />
       </Suspense>
+      <ReplyBox />
     </div>
   );
 }

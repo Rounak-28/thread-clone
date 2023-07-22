@@ -27,6 +27,10 @@
   color: white;
 }
 
+.bg-dark {
+  background-color: #1d1c1c;
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
