@@ -50,7 +50,7 @@ export default async function Page({ params }: { params: { pid: string } }) {
         {/* @ts-ignore */}
         <Replies id={pid} />
       </Suspense>
-      <ReplyBox />
+      <ReplyBox id={pid} />
     </div>
   );
 }
