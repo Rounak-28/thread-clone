@@ -39,6 +39,12 @@ const ReplyBox = ({ id }: { id: string }) => {
     // console.log('value is:', event.target.value);
   };
 
+  const handleKeypress = (e: any) => {
+    if (e.keyCode === 13) {
+      post_reply(message, id[0], session, setFlag);
+    }
+  };
+
   useEffect(() => {
     router.refresh();
     setFlag(false);
@@ -52,6 +58,7 @@ const ReplyBox = ({ id }: { id: string }) => {
         placeholder="Reply to ..."
         className="w-[80%] px-4 text-sm placeholder-gray-300 rounded-full h-12 bg-[#2c2c2d] outline-none focus:placeholder-gray-100"
         onChange={handleChange}
+        onKeyDown={handleKeypress}
         value={message}
       />
       <button
