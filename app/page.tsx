@@ -6,10 +6,14 @@ import { supabase } from "@/lib/supabase";
 export const revalidate = 0;
 
 export default async function Page() {
-  // const { error } = await supabase
+  // const { error:idk } = await supabase
   // .from('posts')
   // .delete()
-  // .eq("user_name", "rounak_28");
+  // .eq("id", "01f4adf9-f0ae-4c75-a199-f463bd32ece2");
+
+  // if(idk){
+  //   console.log(idk)
+  // }
 
   const { data: posts, error } = await supabase
     .from("posts")
@@ -20,6 +24,15 @@ export default async function Page() {
   // console.log(posts);
   // if (error) {
   //   console.log(error);
+  // }
+
+  // const { error: err } = await supabase
+  // .from('posts')
+  // .update({ like_usernames: [] })
+  // .eq("user_name", "Rounak Kumbhakar");
+
+  // if(err){
+  //   console.log(err)
   // }
 
   return (

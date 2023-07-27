@@ -1,13 +1,51 @@
+"use client";
+
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
-import { BsChat, BsHeart } from "react-icons/bs";
+import { BsChat, BsHeart, BsHeartFill } from "react-icons/bs";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
+import { useSession } from "next-auth/react";
 
 const Post = (props: any) => {
-  // console.log(props);
+  // console.log(props)
+  const { data: session } = useSession();
+
+  const [isLiked, setIsLiked] = useState(false);
+  const [numLikes, setNumLikes] = useState(0);
 
   const relativeTime = formatDistanceToNow(new Date(props?.created_at), {
     addSuffix: true,
   }).replace("about", "");
+
+  const handleLike = async () => {
+    setIsLiked(!isLiked);
+
+    if (isLiked) {
+      setNumLikes(numLikes - 1);
+      const { error } = await supabase
+        .from("posts")
+        .update({
+          like_usernames: props?.like_usernames.filter(
+            (u_name: any) => u_name != session?.user?.name
+          ),
+        })
+        .eq("id", props.id);
+    } else {
+      setNumLikes(numLikes + 1);
+      const { error } = await supabase
+        .from("posts")
+        .update({
+          like_usernames: [...props?.like_usernames, session?.user?.name],
+        })
+        .eq("id", props.id);
+    }
+  };
+  
+  useEffect(() => {
+    setNumLikes(props?.like_usernames?.length);
+    setIsLiked(props?.like_usernames.includes(session?.user?.name));
+  }, [session]);
 
   return (
     <>
@@ -22,12 +60,15 @@ const Post = (props: any) => {
         </div>
       </Link>
       <div className="w-full h-9 px-4 flex items-center space-x-4 text-xl">
-        <BsHeart />
+        <div onClick={handleLike}>
+          {isLiked ? <BsHeartFill className="fill-red-500" /> : <BsHeart />}
+        </div>
+
         <BsChat />
       </div>
       <div className="top w-full h-9">
         <p className="px-4 py-1 text-sm text-gray-400 font-light border-b-[1px] border-[#3b3b3b]">
-          42 likes • 42 replies
+          {numLikes} likes • 42 replies
         </p>
       </div>
     </>
