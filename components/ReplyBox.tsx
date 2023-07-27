@@ -17,6 +17,7 @@ const post_reply = async (
       reply_to: id,
       user_name: session?.user?.name,
       poster_dp: session?.user?.image,
+      like_usernames: []
     },
   ]);
 

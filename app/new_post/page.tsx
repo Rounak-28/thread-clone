@@ -24,6 +24,7 @@ const Page = () => {
       content_text: text,
       user_name: session?.user?.name,
       poster_dp: session?.user?.image,
+      like_usernames: []
     });
     if (error) {
       console.log(error);
