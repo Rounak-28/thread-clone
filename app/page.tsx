@@ -6,14 +6,11 @@ import { supabase } from "@/lib/supabase";
 export const revalidate = 0;
 
 export default async function Page() {
-  // const { error:idk } = await supabase
+  // const { error } = await supabase
   // .from('posts')
   // .delete()
   // .eq("id", "01f4adf9-f0ae-4c75-a199-f463bd32ece2");
 
-  // if(idk){
-  //   console.log(idk)
-  // }
 
   const { data: posts, error } = await supabase
     .from("posts")

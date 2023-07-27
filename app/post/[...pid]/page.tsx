@@ -1,6 +1,5 @@
 import Replies from "@/components/Replies";
 import { supabase } from "@/lib/supabase";
-import { AiOutlineHeart } from "react-icons/ai";
 import { BsChat, BsHeart } from "react-icons/bs";
 import { Suspense } from "react";
 import CommentLoading from "@/components/CommentLoading";
@@ -19,7 +18,6 @@ export default async function Page({ params }: { params: { pid: string } }) {
     .eq("id", pid)
     .single();
 
-  // console.log(post)
 
   const relativeTime = formatDistanceToNow(new Date(post?.created_at), {
     addSuffix: true,

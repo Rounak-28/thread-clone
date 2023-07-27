@@ -21,27 +21,22 @@ const Post = (props: any) => {
   const handleLike = async () => {
     setIsLiked(!isLiked);
 
-    if (isLiked) {
-      setNumLikes(numLikes - 1);
-      const { error } = await supabase
-        .from("posts")
-        .update({
-          like_usernames: props?.like_usernames.filter(
-            (u_name: any) => u_name != session?.user?.name
-          ),
-        })
-        .eq("id", props.id);
-    } else {
-      setNumLikes(numLikes + 1);
-      const { error } = await supabase
-        .from("posts")
-        .update({
-          like_usernames: [...props?.like_usernames, session?.user?.name],
-        })
-        .eq("id", props.id);
-    }
+    isLiked ? setNumLikes(numLikes - 1) : setNumLikes(numLikes + 1);
+
+    const new_like_usernames = isLiked
+      ? props?.like_usernames.filter(
+          (u_name: any) => u_name != session?.user?.name
+        )
+      : [...props?.like_usernames, session?.user?.name];
+
+    const { error } = await supabase
+      .from("posts")
+      .update({
+        like_usernames: new_like_usernames
+      })
+      .eq("id", props.id);
   };
-  
+
   useEffect(() => {
     setNumLikes(props?.like_usernames?.length);
     setIsLiked(props?.like_usernames.includes(session?.user?.name));

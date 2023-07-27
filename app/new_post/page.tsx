@@ -28,7 +28,7 @@ const Page = () => {
     if (error) {
       console.log(error);
     } else {
-      console.log("post success!");
+      // console.log("post success!");
       router.push("/");
       router.refresh();
     }
