@@ -11,5 +11,5 @@ this is a clone web app of Instagram's Threads app.
 - [X] add auth
 - [X] comment to a post (try comment on comments and so on)
 - [X] like count to a post
-- [ ] reply count to a post
+- [X] comments count to a post
 - [ ] show like and comment counts for every post on feed and expanded post page too 

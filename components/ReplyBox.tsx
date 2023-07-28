@@ -26,6 +26,17 @@ const post_reply = async (
   );
   // +1 when comment added, -1 when a comment deleted(dlete feature not aded yet)
 
+  // ---------------sql query--------------
+  //   create function increment_comment_count (x int, post_id uuid)
+  // returns void as
+  // $$
+  //   update posts
+  //   set comment_count = comment_count + x
+  //   where id = post_id
+  // $$
+  // language sql volatile;
+  // -----------------------------------------
+
   if (error) {
     console.log(error);
   } else {
