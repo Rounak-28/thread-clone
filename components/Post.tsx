@@ -63,7 +63,7 @@ const Post = (props: any) => {
       </div>
       <div className="top w-full h-9">
         <p className="px-4 py-1 text-sm text-gray-400 font-light border-b-[1px] border-[#3b3b3b]">
-          {numLikes} likes • 42 replies
+          {numLikes} likes • {props?.comment_count} replies
         </p>
       </div>
     </>

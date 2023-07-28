@@ -17,9 +17,14 @@ const post_reply = async (
       reply_to: id,
       user_name: session?.user?.name,
       poster_dp: session?.user?.image,
-      like_usernames: []
+      like_usernames: [],
     },
   ]);
+  const { data: d_, error: e_ } = await supabase.rpc(
+    "increment_comment_count",
+    { x: 1, post_id: id }
+  );
+  // +1 when comment added, -1 when a comment deleted(dlete feature not aded yet)
 
   if (error) {
     console.log(error);
