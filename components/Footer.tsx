@@ -2,6 +2,7 @@
 
 import {
   AiFillHome,
+  AiOutlineHome,
   AiOutlineSearch,
   AiOutlineHeart,
   AiOutlineUser,
@@ -12,19 +13,19 @@ import NavLink from "./NavLink";
 const Footer = () => {
   return (
     <div className=" border-t-[1px] border-t-gray-700 bg-dark text-white text-2xl w-screen h-14 flex justify-evenly items-center">
-      <NavLink href="/">
-        <AiFillHome className="cursor-pointer" />
+      <NavLink href="/" className="text-gray-400">
+        <AiOutlineHome className="cursor-pointer" />
       </NavLink>
-      <NavLink href="/search">
+      <NavLink href="/search" className="text-gray-400">
         <AiOutlineSearch className="cursor-pointer" />
       </NavLink>
-      <NavLink href="/new_post">
+      <NavLink href="/new_post" className="text-gray-400">
         <BsPen className="cursor-pointer" />
       </NavLink>
-      <NavLink href="/likes">
+      <NavLink href="/likes" className="text-gray-400">
         <AiOutlineHeart className="cursor-pointer" />
       </NavLink>
-      <NavLink href="/user">
+      <NavLink href="/user" className="text-gray-400">
         <AiOutlineUser className="cursor-pointer" />
       </NavLink>
     </div>

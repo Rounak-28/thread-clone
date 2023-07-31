@@ -5,7 +5,7 @@ export default function NavLink({ href, children, ...props }: any) {
   const pathname = usePathname();
   const isActive = pathname === href;
 
-  if (isActive && pathname != "/") {
+  if (isActive) {
     props.className += " nav-color";
   }
 
