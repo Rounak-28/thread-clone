@@ -1,26 +1,32 @@
-import Link from "next/link";
+"use client";
+
 import {
   AiFillHome,
   AiOutlineSearch,
   AiOutlineHeart,
-  AiOutlineHome,
   AiOutlineUser,
 } from "react-icons/ai";
-import { BsFillPenFill, BsFillPersonFill, BsPen } from "react-icons/bs";
+import { BsPen } from "react-icons/bs";
+import NavLink from "./NavLink";
 
 const Footer = () => {
   return (
-    <div className=" border-t-[1px] border-t-gray-700 bg-black text-white text-2xl w-screen h-12 flex justify-evenly items-center">
-      {/* <AiFillHome className="cursor-pointer"/> */}
-      <AiOutlineHome className="cursor-pointer" />
-      <AiOutlineSearch className="cursor-pointer" />
-      {/* <BsFillPenFill className="cursor-pointer"/> */}
-      <Link href="/new_post">
+    <div className=" border-t-[1px] border-t-gray-700 bg-dark text-white text-2xl w-screen h-14 flex justify-evenly items-center">
+      <NavLink href="/">
+        <AiFillHome className="cursor-pointer" />
+      </NavLink>
+      <NavLink href="/search">
+        <AiOutlineSearch className="cursor-pointer" />
+      </NavLink>
+      <NavLink href="/new_post">
         <BsPen className="cursor-pointer" />
-      </Link>
-      <AiOutlineHeart className="cursor-pointer" />
-      <AiOutlineUser className="cursor-pointer" />
-      {/* <BsFillPersonFill className="cursor-pointer"/> */}
+      </NavLink>
+      <NavLink href="/likes">
+        <AiOutlineHeart className="cursor-pointer" />
+      </NavLink>
+      <NavLink href="/user">
+        <AiOutlineUser className="cursor-pointer" />
+      </NavLink>
     </div>
   );
 };
