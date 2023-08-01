@@ -28,7 +28,7 @@ export default async function Page({ params, searchParams }: any) {
   }).replace("about", "");
 
   return (
-    <div className="h-screen w-screen animate-slide-in">
+    <div className="h-screen w-screen ">
       <Navbar text="Thread" />
       <div className="px-3 py-2">
         <div className="profile flex items-center space-x-3 py-2">
