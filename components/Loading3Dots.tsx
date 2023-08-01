@@ -3,12 +3,12 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-// const loadingContainer = {
-//   width: "6rem",
-//   height: "10rem",
-//   display: "flex",
-//   justifyContent: "space-around",
-// };
+const loadingContainer = {
+  width: "6rem",
+  height: "10rem",
+  display: "flex",
+  justifyContent: "space-around",
+};
 
 const loadingCircle = {
   display: "block",
@@ -45,12 +45,6 @@ const loadingCircleTransition = {
   repeat: Infinity,
   repeatDelay: 1,
   ease: "easeInOut",
-};
-const loadingContainer = {
-  width: "6rem",
-  height: "10rem",
-  display: "flex",
-  justifyContent: "space-around",
 };
 
 export default function Loading3Dots() {

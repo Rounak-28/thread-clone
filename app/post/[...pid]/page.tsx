@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: { pid: string } }) {
   }).replace("about", "");
 
   return (
-    <div className="min-h-screen w-screen">
+    <div className="h-screen w-screen animate-slide-in">
       <Navbar text="Thread" />
       <div className="px-3 py-2">
         <div className="profile flex items-center space-x-3 py-2">
