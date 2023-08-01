@@ -1,11 +1,11 @@
 import Replies from "@/components/Replies";
 import { supabase } from "@/lib/supabase";
 import { Suspense } from "react";
-import CommentLoading from "@/components/CommentLoading";
 import Navbar from "@/components/Navbar";
 import { formatDistanceToNow } from "date-fns";
 import ReplyBox from "@/components/ReplyBox";
 import LikesAndCommentsCounts from "@/components/LikesAndCommentsCounts";
+import Loading3Dots from "@/components/Loading3Dots";
 
 export const revalidate = 0;
 
@@ -38,9 +38,9 @@ export default async function Page({ params }: { params: { pid: string } }) {
           </div>
         </div>
         <div className="pt-2 text-sm">{post?.content_text}</div>
-        <LikesAndCommentsCounts {...post}/>
+        <LikesAndCommentsCounts {...post} />
       </div>
-      <Suspense fallback={<CommentLoading />}>
+      <Suspense fallback={<Loading3Dots />}>
         {/* @ts-ignore */}
         <Replies id={pid} />
       </Suspense>
