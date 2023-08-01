@@ -5,11 +5,9 @@ import { formatDistanceToNow } from "date-fns";
 import LikesAndCommentsCounts from "./LikesAndCommentsCounts";
 
 const Post = (props: any) => {
-
   const relativeTime = formatDistanceToNow(new Date(props?.created_at), {
     addSuffix: true,
   }).replace("about", "");
-
 
   return (
     <div className="px-3">
@@ -18,12 +16,17 @@ const Post = (props: any) => {
         <span className="text-sm font-semibold">{props?.user_name}</span>
         <span className="absolute right-2 text-sm">{relativeTime}</span>
       </div>
-      <Link href={`/post/${props.id}`}>
+      <Link
+        href={{
+          pathname: `/post/${props.id}`,
+          query: props,
+        }}
+      >
         <div className="w-full min-h-[50px] flex items-center">
           <p className="text-sm ">{props?.content_text}</p>
         </div>
       </Link>
-      <LikesAndCommentsCounts {...props}/>
+      <LikesAndCommentsCounts {...props} />
     </div>
   );
 };

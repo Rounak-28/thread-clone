@@ -32,7 +32,7 @@ const LikesAndCommentsCounts = (props: any) => {
 
   useEffect(() => {
     setNumLikes(props?.like_usernames?.length);
-    setIsLiked(props?.like_usernames.includes(session?.user?.name));
+    setIsLiked(props?.like_usernames?.includes(session?.user?.name));
   }, [session]);
 
   return (
