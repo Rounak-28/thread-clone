@@ -9,20 +9,22 @@ import Loading3Dots from "@/components/Loading3Dots";
 
 export const revalidate = 0;
 
-export default async function Page({ params, searchParams }: any) {
+export default async function Page({
+  params,
+  searchParams,
+}: {
+  params: { pid: string };
+  searchParams: any;
+}) {
   const pid = params.pid;
   // console.log(searchParams)
 
-  // const { data: post, error } = await supabase
-  //   .from("posts")
-  //   .select()
-  //   .eq("id", pid)
-  //   .single();
+  const { data: post, error } = await supabase
+    .from("posts")
+    .select()
+    .eq("id", pid)
+    .single();
 
-  // const relativeTime = formatDistanceToNow(new Date(post?.created_at), {
-  //   addSuffix: true,
-  // }).replace("about", "");
-  
   const relativeTime = formatDistanceToNow(new Date(searchParams?.created_at), {
     addSuffix: true,
   }).replace("about", "");
@@ -33,21 +35,17 @@ export default async function Page({ params, searchParams }: any) {
       <div className="px-3 py-2">
         <div className="profile flex items-center space-x-3 py-2">
           <img
-            // src={post?.poster_dp}
-            src={searchParams?.poster_dp}
+            src={post?.poster_dp}
             className="img h-8 w-8 rounded-full"
             alt=""
           />
           <div className="w-screen flex justify-between">
             <p className="text-sm font-semibold">{searchParams?.user_name}</p>
-            {/* <p className="text-sm font-semibold">{post?.user_name}</p> */}
             <p className="text-sm">{relativeTime}</p>
           </div>
         </div>
         <div className="pt-2 text-sm">{searchParams?.content_text}</div>
-        {/* <div className="pt-2 text-sm">{post?.content_text}</div> */}
-        <LikesAndCommentsCounts {...searchParams} />
-        {/* <LikesAndCommentsCounts {...post} /> */}
+        <LikesAndCommentsCounts {...post} />
       </div>
       <Suspense fallback={<Loading3Dots />}>
         {/* @ts-ignore */}

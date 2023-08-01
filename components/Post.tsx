@@ -19,7 +19,11 @@ const Post = (props: any) => {
       <Link
         href={{
           pathname: `/post/${props.id}`,
-          query: props,
+          query: {
+            created_at: props?.created_at,
+            user_name: props?.user_name,
+            content_text: props?.content_text,
+          },
         }}
       >
         <div className="w-full min-h-[50px] flex items-center">
