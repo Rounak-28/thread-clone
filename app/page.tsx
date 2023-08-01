@@ -37,7 +37,7 @@ export default async function Page() {
       <div className="header sticky top-0 bg-dark z-50">
         <Header />
       </div>
-      <div className="posts mb-8">
+      <div className="posts mb-14">
         {posts?.map((post) => (
           <Post {...post} key={post.id} />
         ))}
