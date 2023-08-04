@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <div className="h-14 w-screen flex items-center relative">
-      <PiGraphLight className="w-8 h-8 mx-auto rounded-full" />
+      <PiGraphLight className="w-9 h-9 mx-auto rounded-full" />
       {session ? (
         <Profile
           session={session}
