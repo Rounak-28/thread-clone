@@ -2,10 +2,10 @@ import Replies from "@/components/Replies";
 import { supabase } from "@/lib/supabase";
 import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
-import { formatDistanceToNow } from "date-fns";
 import ReplyBox from "@/components/ReplyBox";
 import LikesAndCommentsCounts from "@/components/LikesAndCommentsCounts";
 import Loading3Dots from "@/components/Loading3Dots";
+import NameAndEdit from "@/components/NameAndEdit";
 
 export const revalidate = 0;
 
@@ -25,25 +25,11 @@ export default async function Page({
     .eq("id", pid)
     .single();
 
-  const relativeTime = formatDistanceToNow(new Date(searchParams?.created_at), {
-    addSuffix: true,
-  }).replace("about", "");
-
   return (
     <div className="h-screen w-screen">
       <Navbar text="Thread" />
       <div className="px-3 py-2">
-        <div className="profile flex items-center space-x-3 py-2">
-          <img
-            src={post?.poster_dp}
-            className="img h-8 w-8 rounded-full"
-            alt=""
-          />
-          <div className="w-screen flex justify-between">
-            <p className="text-sm font-semibold">{searchParams?.user_name}</p>
-            <p className="text-sm">{relativeTime}</p>
-          </div>
-        </div>
+        <NameAndEdit {...searchParams} />
         <div className="pt-2 text-sm">{searchParams?.content_text}</div>
         <LikesAndCommentsCounts {...post} />
       </div>

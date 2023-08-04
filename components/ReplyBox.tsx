@@ -24,7 +24,7 @@ const post_reply = async (
     "increment_comment_count",
     { x: 1, post_id: id }
   );
-  // +1 when comment added, -1 when a comment deleted(dlete feature not aded yet)
+  // +1 when comment added, -1 when a comment deleted(delete feature not added yet)
 
   // ---------------sql query--------------
   //   create function increment_comment_count (x int, post_id uuid)

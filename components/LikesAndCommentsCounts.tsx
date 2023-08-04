@@ -38,7 +38,7 @@ const LikesAndCommentsCounts = (props: any) => {
   return (
     <>
       <div className="w-full h-9 flex items-center space-x-4 text-xl">
-        <div onClick={handleLike}>
+        <div onClick={handleLike} className="cursor-pointer">
           {isLiked ? <BsHeartFill className="fill-red-500" /> : <BsHeart />}
         </div>
 
