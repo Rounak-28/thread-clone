@@ -15,13 +15,13 @@ this is a clone web app of Instagram's Threads app.
 - [X] show like and comment counts for every post on expanded post page
 - [X] add google auth
 - [X] add some animations / loaders when loading/posting etc
-- [ ] feature to delete post / reply
-- [ ] feature to edit post / reply
+- [ ] new logo
 - [ ] option to post/reply image too along with caption(text)
 - [ ] user page(shows own posts)
-- [ ] likes page(who liked my posts)
+- [ ] delete and edit own post in user page
 - [ ] search page (search posts by text)
 - [ ] light/dark mode toggling
-- [ ] edit profile page (edit username etc)
+- [ ] edit-profile page (edit username etc)
 - [ ] make the site responsive
+- [ ] likes page(who liked my posts)
 - [ ] infinite scroll

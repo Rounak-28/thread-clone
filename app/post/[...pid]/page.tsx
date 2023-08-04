@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import ReplyBox from "@/components/ReplyBox";
 import LikesAndCommentsCounts from "@/components/LikesAndCommentsCounts";
 import Loading3Dots from "@/components/Loading3Dots";
-import NameAndEdit from "@/components/NameAndEdit";
+import NameAndDP from "@/components/NameAndDP";
 
 export const revalidate = 0;
 
@@ -29,7 +29,7 @@ export default async function Page({
     <div className="h-screen w-screen">
       <Navbar text="Thread" />
       <div className="px-3 py-2">
-        <NameAndEdit {...searchParams} />
+        <NameAndDP {...searchParams} />
         <div className="pt-2 text-sm">{searchParams?.content_text}</div>
         <LikesAndCommentsCounts {...post} />
       </div>

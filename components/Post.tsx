@@ -1,11 +1,11 @@
 import Link from "next/link";
 import LikesAndCommentsCounts from "./LikesAndCommentsCounts";
-import NameAndEdit from "./NameAndEdit";
+import NameAndDP from "./NameAndDP";
 
 const Post = (props: any) => {
   return (
     <div className="px-3">
-      <NameAndEdit {...props} />
+      <NameAndDP {...props} />
       <Link
         href={{
           pathname: `/post/${props.id}`,
