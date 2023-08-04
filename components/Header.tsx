@@ -5,6 +5,7 @@ import Login_btn from "./Login_btn";
 import Profile from "./Profile";
 import { useSession } from "next-auth/react";
 import ProfileModal from "./ProfileModal";
+import { PiGraphLight } from "react-icons/pi";
 
 const Header = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -26,10 +27,10 @@ const Header = () => {
 
   return (
     <div className="h-14 w-screen flex items-center relative">
-      <div
-        className={`bg-white w-9 h-6 mx-auto rounded-full transition-transform
+      <PiGraphLight
+        className={`w-8 h-8 mx-auto rounded-full transition-transform
         ${isHeaderVisible ? "header" : "header--hidden"}`}
-      ></div>
+      />
       {session ? (
         <Profile
           session={session}
