@@ -40,33 +40,6 @@ const Page = () => {
     }
   };
 
-  const lol = async () => {
-    // console.log("fshj")
-
-    // const { data, error } = await supabase
-    // .storage
-    // .getBucket("post_images");
-
-
-// const { data, error } = await supabase
-// .storage
-// .from('post_images')
-// .download('img1.png')
-
-// Use the JS library to create a bucket.
-
-// const { data, error } = await supabase.storage.createBucket('images')
-
-const { data, error } = await supabase
-.storage
-.listBuckets()
-
-    console.log(data)
-    if(error){
-      console.log(error)
-    }
-  };
-
   return (
     <>
       <Navbar text="New Thread" />
@@ -87,8 +60,7 @@ const { data, error } = await supabase
             className="w-full h-12 bg-inherit pt-1 mt-1 outline-blue-400"
           ></textarea>
           {/* <AiOutlinePaperClip  className="text-2xl text-gray-500"/> */}
-          <input type="file" name="" id="fileInput" />
-          <button onClick={lol}>idk</button>
+          {/* <input type="file" name="" id="fileInput" /> */}
         </div>
       </div>
       <button
