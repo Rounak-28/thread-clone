@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { useSession } from "next-auth/react";
+import { AiOutlinePaperClip } from "react-icons/ai";
 
 const Page = () => {
   const router = useRouter();
@@ -20,11 +21,15 @@ const Page = () => {
 
   const post = async () => {
     setIsPosting(true);
+
+    // const fileInput: any = document.getElementById("fileInput");
+    // const file = fileInput.files[0];
+
     const { error } = await supabase.from("posts").insert({
       content_text: text,
       user_name: session?.user?.name,
       poster_dp: session?.user?.image,
-      like_usernames: []
+      like_usernames: [],
     });
     if (error) {
       console.log(error);
@@ -32,6 +37,33 @@ const Page = () => {
       // console.log("post success!");
       router.push("/");
       router.refresh();
+    }
+  };
+
+  const lol = async () => {
+    // console.log("fshj")
+
+    // const { data, error } = await supabase
+    // .storage
+    // .getBucket("post_images");
+
+
+// const { data, error } = await supabase
+// .storage
+// .from('post_images')
+// .download('img1.png')
+
+// Use the JS library to create a bucket.
+
+// const { data, error } = await supabase.storage.createBucket('images')
+
+const { data, error } = await supabase
+.storage
+.listBuckets()
+
+    console.log(data)
+    if(error){
+      console.log(error)
     }
   };
 
@@ -52,8 +84,11 @@ const Page = () => {
             value={text}
             onChange={handleCommentChange}
             placeholder="write a post..."
-            className="w-full h-16 bg-inherit pt-1 mt-1 outline-blue-400"
+            className="w-full h-12 bg-inherit pt-1 mt-1 outline-blue-400"
           ></textarea>
+          {/* <AiOutlinePaperClip  className="text-2xl text-gray-500"/> */}
+          <input type="file" name="" id="fileInput" />
+          <button onClick={lol}>idk</button>
         </div>
       </div>
       <button
