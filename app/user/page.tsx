@@ -1,13 +1,34 @@
 "use client";
 
 import Footer from "@/components/Footer";
+import Post from "@/components/Post";
+import { supabase } from "@/lib/supabase";
 import { useSession } from "next-auth/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Page = () => {
   const { data: session } = useSession();
   const [isPost, setIsPost] = useState(true); // true => show posts, false => replies
-  // console.log(session)
+  const [data, setData]: any = useState();
+
+  useEffect(() => {
+    const fatchData = async () => {
+      try {
+        const { data: posts, error } = await supabase
+          .from("posts")
+          .select()
+          .eq("user_name", session?.user?.name)
+          .is("reply_to", null)
+          .order("created_at", { ascending: false });
+        if (error) throw error;
+        setData(posts);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fatchData();
+  }, []);
 
   return (
     <div className="p-3 pt-5">
@@ -20,7 +41,7 @@ const Page = () => {
           src={session?.user?.image!}
           alt=""
         />
-        <div className="idk w-full h-14 mt-6 flex justify-around items-center">
+        <div className="w-full h-14 mt-6 flex justify-around items-center">
           <button className="border-[1px] border-[#3d3c3c] flex justify-center items-center w-56 h-9 rounded-md hover:bg-[#222222]">
             Edit profile
           </button>
@@ -50,6 +71,11 @@ const Page = () => {
             >
               Replies
             </button>
+          </div>
+          <div className="posts mb-14">
+            {data?.map((post: any) => (
+              <Post {...post} key={post.id} />
+            ))}
           </div>
         </div>
       </div>
