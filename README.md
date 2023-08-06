@@ -17,7 +17,10 @@ this is a clone web app of Instagram's Threads app.
 - [X] add some animations / loaders when loading/posting etc
 - [ ] user page(shows own posts)
 - [ ] search page (search posts by text)
+- [ ] feature to view other peoples profiles
 - [ ] delete and edit own post in user page
+- [ ] follow unfollow thing
+- [ ] show followers in profiles
 - [ ] option to post/reply image too along with caption(text)
 - [ ] light/dark mode toggling
 - [ ] edit-profile page (edit username etc)
