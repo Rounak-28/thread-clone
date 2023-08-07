@@ -27,9 +27,16 @@ const Footer = () => {
       <NavLink href="/search" className="text-gray-400">
         <AiOutlineSearch className="cursor-pointer" />
       </NavLink>
-      <NavLink href="/new_post" className="text-gray-400">
-        <BsPen className="cursor-pointer" />
-      </NavLink>
+
+      {session ? (
+        <NavLink href="/new_post" className="text-gray-400">
+          <BsPen className="cursor-pointer" />
+        </NavLink>
+      ) : (
+        <button className="text-gray-400" onClick={() => signIn()}>
+          <BsPen className="cursor-pointer" />
+        </button>
+      )}
       <NavLink href="/likes" className="text-gray-400">
         <AiOutlineHeart className="cursor-pointer" />
       </NavLink>
