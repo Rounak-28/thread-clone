@@ -16,7 +16,7 @@ this is a clone web app of Instagram's Threads app.
 - [X] add google auth
 - [X] add some animations / loaders when loading/posting etc
 - [X] user page(shows own posts)
-- [ ] add dummy user
+- [X] add dummy user
 - [ ] search page (search posts by text)
 - [ ] feature to view other peoples profiles
 - [ ] delete and edit own post in user page
