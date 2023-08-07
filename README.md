@@ -15,7 +15,8 @@ this is a clone web app of Instagram's Threads app.
 - [X] show like and comment counts for every post on expanded post page
 - [X] add google auth
 - [X] add some animations / loaders when loading/posting etc
-- [ ] user page(shows own posts)(show msg in not signed in, user page shouldnot exist without signin)
+- [X] user page(shows own posts)
+- [ ] add dummy user
 - [ ] search page (search posts by text)
 - [ ] feature to view other peoples profiles
 - [ ] delete and edit own post in user page
