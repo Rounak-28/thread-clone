@@ -15,6 +15,11 @@ const Page = () => {
     setSearchQuery(e.target.value);
     // console.log('value is:', e.target.value);
   };
+  const handleKeypress = (e: any) => {
+    if (e.keyCode === 13) {
+      btnClick();
+    }
+  };
 
   const btnClick = async () => {
     try {
@@ -39,6 +44,7 @@ const Page = () => {
           <input
             type="text"
             onChange={handleChange}
+            onKeyDown={handleKeypress}
             placeholder="search something..."
             className="w-[75%] h-full bg-[#302d2d] focus:bg-[#403c3c] px-2 rounded outline-none"
           />
