@@ -1,7 +1,7 @@
 "use client";
 
 import { supabase } from "@/lib/supabase";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -70,20 +70,31 @@ const ReplyBox = ({ id }: { id: string }) => {
 
   return (
     <div className="fixed bottom-0 flex justify-center items-center w-screen h-20 bg-dark space-x-2">
-      <input
-        type="text"
-        placeholder="Reply to ..."
-        className="w-[80%] px-4 text-sm placeholder-gray-300 rounded-full h-12 bg-[#2c2c2d] outline-none focus:placeholder-gray-100"
-        onChange={handleChange}
-        onKeyDown={handleKeypress}
-        value={message}
-      />
-      <button
-        className="bg-blue-500 rounded hover:bg-blue-600 w-16 h-10 flex justify-center items-center"
-        onClick={() => post_reply(message, id[0], session, setFlag)}
-      >
-        post
-      </button>
+      {session ? (
+        <>
+          <input
+            type="text"
+            placeholder="Reply to ..."
+            className="w-[80%] px-4 text-sm placeholder-gray-300 rounded-full h-12 bg-[#2c2c2d] outline-none focus:placeholder-gray-100"
+            onChange={handleChange}
+            onKeyDown={handleKeypress}
+            value={message}
+          />
+          <button
+            className="bg-blue-500 rounded hover:bg-blue-600 w-16 h-10 flex justify-center items-center"
+            onClick={() => post_reply(message, id[0], session, setFlag)}
+          >
+            post
+          </button>
+        </>
+      ) : (
+        <button
+          className="flex justify-center items-center bg-blue-600 w-48 h-10 rounded-md"
+          onClick={() => signIn()}
+        >
+          Log In to comment
+        </button>
+      )}
     </div>
   );
 };
