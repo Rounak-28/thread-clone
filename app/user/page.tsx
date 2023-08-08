@@ -12,7 +12,7 @@ const Page = () => {
   const [data, setData]: any = useState();
 
   useEffect(() => {
-    const fatchData = async () => {
+    const fetchData = async () => {
       try {
         const { data: posts, error } = await supabase
           .from("posts")
@@ -27,7 +27,7 @@ const Page = () => {
       }
     };
 
-    fatchData();
+    fetchData();
   }, []);
 
   return (
