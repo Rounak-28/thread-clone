@@ -61,8 +61,8 @@ const Page = () => {
       </div>
       {matched_data && (
         <p className="px-3 pb-3 text-2xl">
-          posts with the search term "
-          <span className="font-bold">{searchTerm}</span>"
+          posts with the search term &quot;
+          <span className="font-bold">{searchTerm}</span>&quot;
         </p>
       )}
 
