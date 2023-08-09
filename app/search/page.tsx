@@ -10,6 +10,8 @@ const Page = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [matched_data, setMatched_data]: any = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  // searchQuery changes when input changes, but searchTerm changes when btnClick is called
 
   const handleChange = (e: any) => {
     setSearchQuery(e.target.value);
@@ -30,6 +32,7 @@ const Page = () => {
         .textSearch("content_text", searchQuery);
       if (error) throw error;
       setMatched_data(match_posts);
+      setSearchTerm(searchQuery);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -56,6 +59,13 @@ const Page = () => {
           </button>
         </div>
       </div>
+      {matched_data && (
+        <p className="px-3 pb-3 text-2xl">
+          posts with the search term "
+          <span className="font-bold">{searchTerm}</span>"
+        </p>
+      )}
+
       {isLoading && <Loading3Dots />}
       <div className="mb-14">
         {matched_data?.map((post: any) => (
