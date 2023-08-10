@@ -18,8 +18,9 @@ this is a clone web app of Instagram's Threads app.
 - [X] user page(shows own posts)
 - [X] add dummy user
 - [X] search page (search posts by text)
-- [ ] feature to view other peoples profiles
+- [X] feature to view other peoples profiles
 - [ ] delete and edit own post in user page
+- [ ] create user table and figure out how to work with that
 - [ ] follow unfollow thing
 - [ ] show followers in profiles
 - [ ] option to post/reply image too along with caption(text)
