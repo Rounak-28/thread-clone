@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  AiFillHome,
   AiOutlineHome,
   AiOutlineSearch,
   AiOutlineHeart,
@@ -16,8 +15,7 @@ const Footer = () => {
   const router = useRouter();
   const { data: session } = useSession();
   // console.log(session)
-
-  // TODO: "redirect to user page after signin from footer btn"
+  // TODO: "redirect to profile page after signin from footer btn"
 
   return (
     <div className=" border-t-[1px] border-t-gray-700 bg-dark text-white text-2xl w-screen h-14 flex justify-evenly items-center">
@@ -41,7 +39,7 @@ const Footer = () => {
         <AiOutlineHeart className="cursor-pointer" />
       </NavLink>
       {session ? (
-        <NavLink href="/user" className="text-gray-400">
+        <NavLink href="/profile" className="text-gray-400">
           <AiOutlineUser className="cursor-pointer" />
         </NavLink>
       ) : (
