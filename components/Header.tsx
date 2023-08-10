@@ -11,12 +11,8 @@ const Header = () => {
   const [isProfileModelOpen, setIsProfileModelOpen] = useState(false);
   const { data: session } = useSession();
 
-  // console.log(session)
-  // 100992861930084470573
-
   return (
     <div className="h-14 w-screen flex items-center relative">
-      <span>{session?.user.id}</span>
       <PiGraphLight className="w-9 h-9 mx-auto rounded-full" />
       {session ? (
         <Profile
