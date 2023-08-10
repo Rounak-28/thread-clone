@@ -32,6 +32,15 @@ const authOptions = {
     }),
     // ...add more providers here
   ],
+  callbacks: {
+    session: ({ session, token }: any) => ({
+      ...session,
+      user: {
+        ...session.user,
+        id: token.sub,
+      },
+    }),
+  },
   secret: process.env.SECRET,
 };
 
