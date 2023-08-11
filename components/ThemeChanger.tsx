@@ -1,6 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import { BsMoon, BsSun } from "react-icons/bs";
 
 const ThemeChanger = () => {
   const { theme, setTheme } = useTheme();
@@ -13,15 +14,9 @@ const ThemeChanger = () => {
     }
   };
 
-
   return (
-    <div
-      className="bg-red-600 w-6 h-6 rounded-full"
-      onClick={() => changeTheme()}
-    >
-      {/* theme: {theme} */}
-      {/* <button onClick={() => setTheme("light")}>Light Mode</button>
-      <button onClick={() => setTheme("dark")}>Dark Mode</button> */}
+    <div className="text-2xl absolute left-3" onClick={() => changeTheme()}>
+      {theme === "light" ? <BsSun /> : <BsMoon />}
     </div>
   );
 };
