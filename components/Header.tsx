@@ -6,6 +6,7 @@ import Profile from "./Profile";
 import { useSession } from "next-auth/react";
 import ProfileModal from "./ProfileModal";
 import { PiGraphLight } from "react-icons/pi";
+import ThemeChanger from "./ThemeChanger";
 
 const Header = () => {
   const [isProfileModelOpen, setIsProfileModelOpen] = useState(false);
@@ -13,6 +14,7 @@ const Header = () => {
 
   return (
     <div className="h-14 w-screen flex items-center relative">
+      <ThemeChanger />
       <PiGraphLight className="w-9 h-9 mx-auto rounded-full" />
       {session ? (
         <Profile

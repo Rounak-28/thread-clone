@@ -9,41 +9,38 @@ import {
 import { BsPen } from "react-icons/bs";
 import NavLink from "./NavLink";
 import { signIn, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
 
 const Footer = () => {
-  const router = useRouter();
   const { data: session } = useSession();
   // console.log(session)
   // TODO: "redirect to profile page after signin from footer btn"
 
   return (
-    <div className=" border-t-[1px] border-t-gray-700 bg-dark text-white text-2xl w-screen h-14 flex justify-evenly items-center">
-      <NavLink href="/" className="text-gray-400">
+    <div className="border-t-[1px] border-t-gray-400 dark:border-t-gray-700 text-gray-600 dark:text-gray-400 text-2xl w-screen h-14 flex justify-evenly items-center">
+      <NavLink href="/">
         <AiOutlineHome className="cursor-pointer" />
       </NavLink>
-      <NavLink href="/search" className="text-gray-400">
+      <NavLink href="/search">
         <AiOutlineSearch className="cursor-pointer" />
       </NavLink>
-
       {session ? (
-        <NavLink href="/new_post" className="text-gray-400">
+        <NavLink href="/new_post">
           <BsPen className="cursor-pointer" />
         </NavLink>
       ) : (
-        <button className="text-gray-400" onClick={() => signIn()}>
+        <button onClick={() => signIn()}>
           <BsPen className="cursor-pointer" />
         </button>
       )}
-      <NavLink href="/likes" className="text-gray-400">
+      <NavLink href="/likes">
         <AiOutlineHeart className="cursor-pointer" />
       </NavLink>
       {session ? (
-        <NavLink href="/profile" className="text-gray-400">
+        <NavLink href="/profile">
           <AiOutlineUser className="cursor-pointer" />
         </NavLink>
       ) : (
-        <button className="text-gray-400" onClick={() => signIn()}>
+        <button onClick={() => signIn()}>
           <AiOutlineUser className="cursor-pointer" />
         </button>
       )}

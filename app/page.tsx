@@ -14,7 +14,7 @@ export default async function Page() {
 
   return (
     <main className="min-h-screen w-screen">
-      <div className="header sticky top-0 bg-dark z-50">
+      <div className="header sticky top-0 z-50 bg-white dark:bg-[#0a0a0a]">
         <Header />
       </div>
       <div className="posts mb-14">
@@ -22,7 +22,7 @@ export default async function Page() {
           <Post {...post} key={post.id} />
         ))}
       </div>
-      <div className="footer fixed bottom-0">
+      <div className="footer fixed bottom-0 bg-white dark:bg-[#0a0a0a]">
         <Footer />
       </div>
     </main>

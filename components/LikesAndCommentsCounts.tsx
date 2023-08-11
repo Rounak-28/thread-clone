@@ -45,7 +45,7 @@ const LikesAndCommentsCounts = (props: any) => {
         <BsChat />
       </div>
       <div className="top w-full h-9">
-        <p className="py-1 text-sm text-gray-400 font-light border-b-[1px] border-[#3b3b3b]">
+        <p className="py-1 text-sm text-gray-700 dark:text-gray-400 font-light border-b-[1px] border-gray-300 dark:border-[#3b3b3b]">
           {props?.comment_count} replies • {numLikes} likes
         </p>
       </div>

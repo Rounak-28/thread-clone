@@ -18,7 +18,7 @@ const Post = (props: any) => {
         }}
       >
         <div className="w-full min-h-[50px] flex items-center">
-          <p className="text-sm ">{props?.content_text}</p>
+          <p className="text-sm">{props?.content_text}</p>
         </div>
       </Link>
       <LikesAndCommentsCounts {...props} />

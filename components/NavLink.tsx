@@ -6,7 +6,7 @@ export default function NavLink({ href, children, ...props }: any) {
   const isActive = pathname === href;
 
   if (isActive) {
-    props.className += " nav-color";
+    props.className += " text-black dark:text-white";
   }
 
   return (
