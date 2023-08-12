@@ -69,19 +69,19 @@ const ReplyBox = ({ id }: { id: string }) => {
   }, [flag]);
 
   return (
-    <div className="fixed bottom-0 flex justify-center items-center w-screen h-20 bg-dark space-x-2">
+    <div className="fixed bottom-0 flex justify-center items-center w-screen h-20 space-x-2">
       {session ? (
         <>
           <input
             type="text"
             placeholder="Reply to ..."
-            className="w-[80%] px-4 text-sm placeholder-gray-300 rounded-full h-12 bg-[#2c2c2d] outline-none focus:placeholder-gray-100"
+            className="w-[80%] px-4 text-sm placeholder-gray-600 dark:placeholder-gray-300 rounded-full h-12 bg-gray-300 dark:bg-[#2c2c2d] outline-none focus:placeholder-gray-400 dark:focus:placeholder-gray-100"
             onChange={handleChange}
             onKeyDown={handleKeypress}
             value={message}
           />
           <button
-            className="bg-blue-500 rounded hover:bg-blue-600 w-16 h-10 flex justify-center items-center"
+            className="bg-blue-400 hover:bg-blue-500 rounded dark:bg-blue-500 dark:hover:bg-blue-600 w-16 h-10 flex justify-center items-center"
             onClick={() => post_reply(message, id[0], session, setFlag)}
           >
             post
@@ -89,7 +89,7 @@ const ReplyBox = ({ id }: { id: string }) => {
         </>
       ) : (
         <button
-          className="flex justify-center items-center bg-blue-600 w-48 h-10 rounded-md"
+          className="flex justify-center items-center bg-blue-500 dark:bg-blue-600 w-48 h-10 rounded-md"
           onClick={() => signIn()}
         >
           Log In to comment

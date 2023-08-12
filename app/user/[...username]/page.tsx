@@ -47,7 +47,7 @@ export default function Page({ params }: { params: { username: string } }) {
       <div className="choice w-full h-12 flex justify-around items-center">
         <button
           className={`${
-            !isPost ? "text-gray-400" : "border-b-[1px]"
+            !isPost ? "text-gray-500 dark:text-gray-400" : "border-b-[1px]"
           } font-semibold w-1/2 h-full`}
           onClick={() => {
             !isPost && setIsPost(true);
@@ -57,7 +57,7 @@ export default function Page({ params }: { params: { username: string } }) {
         </button>
         <button
           className={`${
-            isPost ? "text-gray-400" : "border-b-[1px]"
+            isPost ? "text-gray-500 dark:text-gray-400" : "border-b-[1px]"
           } font-semibold w-1/2 h-full`}
           onClick={() => {
             isPost && setIsPost(false);
@@ -66,14 +66,12 @@ export default function Page({ params }: { params: { username: string } }) {
           Replies
         </button>
       </div>
-      <div>
-        <div className="posts mb-14">
-          {data?.map((post: any) => (
-            <Post {...post} key={post.id} />
-          ))}
-        </div>
+      <div className="posts mb-14">
+        {data?.map((post: any) => (
+          <Post {...post} key={post.id} />
+        ))}
       </div>
-      <div className="footer fixed bottom-0 left-0">
+      <div className="footer fixed bottom-0 left-0 bg-white dark:bg-[#0a0a0a]">
         <Footer />
       </div>
     </div>

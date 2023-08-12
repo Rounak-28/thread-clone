@@ -42,10 +42,10 @@ const Page = () => {
           alt=""
         />
         <div className="w-full h-14 mt-6 flex justify-around items-center">
-          <button className="border-[1px] border-[#3d3c3c] flex justify-center items-center w-56 h-9 rounded-md hover:bg-[#222222]">
+          <button className="border-[1px] border-[#3d3c3c] flex justify-center items-center w-56 h-9 rounded-md hover:bg-gray-300 dark:hover:bg-[#222222]">
             Edit profile
           </button>
-          <button className="border-[1px] border-[#3d3c3c] flex justify-center items-center w-56 h-9 rounded-md hover:bg-[#222222]">
+          <button className="border-[1px] border-[#3d3c3c] flex justify-center items-center w-56 h-9 rounded-md hover:bg-gray-300 dark:hover:bg-[#222222]">
             Share profile
           </button>
         </div>
@@ -53,7 +53,7 @@ const Page = () => {
           <div className="choice w-full h-12 flex justify-around items-center">
             <button
               className={`${
-                !isPost ? "text-gray-400" : "border-b-[1px]"
+                !isPost ? "text-gray-500 dark:text-gray-400" : "border-b-[1px]"
               } font-semibold w-1/2 h-full`}
               onClick={() => {
                 !isPost && setIsPost(true);
@@ -63,7 +63,7 @@ const Page = () => {
             </button>
             <button
               className={`${
-                isPost ? "text-gray-400" : "border-b-[1px]"
+                isPost ? "text-gray-500 dark:text-gray-400" : "border-b-[1px]"
               } font-semibold w-1/2 h-full`}
               onClick={() => {
                 isPost && setIsPost(false);
@@ -72,14 +72,14 @@ const Page = () => {
               Replies
             </button>
           </div>
-          <div className="posts mb-14">
+          <div className="posts pb-14">
             {data?.map((post: any) => (
               <Post {...post} key={post.id} />
             ))}
           </div>
         </div>
       </div>
-      <div className="footer fixed bottom-0 left-0">
+      <div className="footer fixed bottom-0 left-0 bg-white dark:bg-[#0a0a0a">
         <Footer />
       </div>
     </div>

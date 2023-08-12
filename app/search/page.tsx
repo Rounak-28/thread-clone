@@ -41,7 +41,7 @@ const Page = () => {
 
   return (
     <>
-      <div className="sticky top-0 left-0 w-full bg-dark z-50">
+      <div className="sticky top-0 left-0 w-full bg-white dark:bg-[#0a0a0a] z-50">
         <p className="text-2xl px-2">Search posts</p>
         <div className="w-full h-20 flex justify-evenly items-center py-5">
           <input
@@ -49,10 +49,10 @@ const Page = () => {
             onChange={handleChange}
             onKeyDown={handleKeypress}
             placeholder="search something..."
-            className="w-[75%] h-full bg-[#302d2d] focus:bg-[#403c3c] px-2 rounded outline-none"
+            className="w-[75%] h-full bg-gray-300 focus:bg-gray-200 dark:bg-[#302d2d] dark:focus:bg-[#403c3c] px-2 rounded outline-none placeholder-gray-500 dark:placeholder-gray-400"
           />
           <button
-            className="bg-blue-600 hover:bg-blue-700 w-20 h-10 rounded"
+            className="bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 w-20 h-10 rounded"
             onClick={btnClick}
           >
             Search
@@ -72,7 +72,7 @@ const Page = () => {
           <Post {...post} key={post.id} />
         ))}
       </div>
-      <div className="footer fixed bottom-0 left-0">
+      <div className="footer fixed bottom-0 left-0 bg-white dark:bg-[#0a0a0a]">
         <Footer />
       </div>
     </>

@@ -6,7 +6,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { useSession } from "next-auth/react";
-import { AiOutlinePaperClip } from "react-icons/ai";
 
 const Page = () => {
   const router = useRouter();
@@ -57,15 +56,15 @@ const Page = () => {
             value={text}
             onChange={handleCommentChange}
             placeholder="write a post..."
-            className="w-full h-12 bg-inherit pt-1 mt-1 outline-blue-400"
+            className="w-full h-12 bg-inherit pt-1 mt-1 outline-blue-400 placeholder-gray-500 dark:placeholder-gray-400 dark:outline-gray-400"
           ></textarea>
-          {/* <AiOutlinePaperClip  className="text-2xl text-gray-500"/> */}
-          {/* <input type="file" name="" id="fileInput" /> */}
         </div>
       </div>
       <button
         className={`f w-24 h-11 fixed top-0 right-0 flex justify-center items-center  text-xl font-semibold ${
-          isPosting ? "text-blue-300" : "text-blue-400"
+          isPosting
+            ? "text-blue-400 dark:text-blue-300"
+            : "text-blue-500 dark:text-blue-400"
         }`}
         onClick={post}
         disabled={isPosting}
