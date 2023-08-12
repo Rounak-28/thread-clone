@@ -42,10 +42,10 @@ const Page = () => {
           alt=""
         />
         <div className="w-full h-14 mt-6 flex justify-around items-center">
-          <button className="border-[1px] border-[#3d3c3c] flex justify-center items-center w-56 h-9 rounded-md hover:bg-gray-300 dark:hover:bg-[#222222]">
+          <button className="border-[1px] border-[#3d3c3c] flex justify-center items-center w-52 h-9 rounded-md hover:bg-gray-300 dark:hover:bg-[#222222]">
             Edit profile
           </button>
-          <button className="border-[1px] border-[#3d3c3c] flex justify-center items-center w-56 h-9 rounded-md hover:bg-gray-300 dark:hover:bg-[#222222]">
+          <button className="border-[1px] border-[#3d3c3c] flex justify-center items-center w-52 h-9 rounded-md hover:bg-gray-300 dark:hover:bg-[#222222]">
             Share profile
           </button>
         </div>
@@ -79,7 +79,7 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="footer fixed bottom-0 left-0 bg-white dark:bg-[#0a0a0a">
+      <div className="footer fixed bottom-0 left-0 bg-white dark:bg-[#0a0a0a]">
         <Footer />
       </div>
     </div>
