@@ -19,7 +19,7 @@ this is a clone web app of Instagram's Threads app.
 - [X] add dummy user
 - [X] search page (search posts by text)
 - [X] feature to view other peoples profiles
-- [ ] light/dark mode toggling
+- [X] light/dark mode toggling
 - [ ] likes page(who liked my posts)
 - [ ] delete and edit own post in user page
 - [ ] create user table and figure out how to work with that
