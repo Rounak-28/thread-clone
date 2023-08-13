@@ -67,7 +67,7 @@ const Page = () => {
       )}
 
       {isLoading && <Loading3Dots />}
-      <div className="mb-14">
+      <div className="mb-12">
         {matched_data?.map((post: any) => (
           <Post {...post} key={post.id} />
         ))}

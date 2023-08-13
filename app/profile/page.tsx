@@ -72,7 +72,7 @@ const Page = () => {
               Replies
             </button>
           </div>
-          <div className="posts pb-14">
+          <div className="posts pb-12">
             {data?.map((post: any) => (
               <Post {...post} key={post.id} />
             ))}

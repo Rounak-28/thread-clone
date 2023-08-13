@@ -17,7 +17,7 @@ export default async function Page() {
       <div className="header sticky top-0 z-50 bg-white dark:bg-[#0a0a0a]">
         <Header />
       </div>
-      <div className="posts mb-14">
+      <div className="posts mb-12">
         {posts?.map((post) => (
           <Post {...post} key={post.id} />
         ))}

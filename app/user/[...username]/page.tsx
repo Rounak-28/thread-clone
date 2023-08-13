@@ -66,7 +66,7 @@ export default function Page({ params }: { params: { username: string } }) {
           Replies
         </button>
       </div>
-      <div className="posts mb-14">
+      <div className="posts mb-12">
         {data?.map((post: any) => (
           <Post {...post} key={post.id} />
         ))}
